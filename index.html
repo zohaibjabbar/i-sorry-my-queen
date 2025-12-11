@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>i am sorry my queen</title>
+
+  <style>
+    :root { --accent: #ff6347; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg,#f0f8ff,#ffe4e1,#fff0f5);
+      background-size: 300% 300%;
+      animation: bgFlow 15s ease infinite;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* GLASSMORPHIC CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 900px;
+      padding: 30px 35px;
+      border-radius: 20px;
+      backdrop-filter: blur(18px) saturate(170%);
+      -webkit-backdrop-filter: blur(18px) saturate(170%);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      z-index: 999 !important;  /* stays above butterflies */
+      position: relative;
+      max-height: 85vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 25px;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(255,99,71,0.7);
+    }
+
+    #list-container {
+      overflow-y: auto;
+      max-height: 65vh;
+      padding-right: 10px;
+    }
+
+    .list-item {
+      background: rgba(255,240,245,0.7);
+      margin: 12px 0;
+      padding: 16px 18px;
+      border-radius: 10px;
+      border-left: 8px solid var(--accent);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+      line-height: 1.5;
+      font-size: 1rem;
+      animation: popIn .6s ease forwards;
+      opacity: 0;
+      transform: translateY(5px) scale(0.97);
+    }
+
+    @keyframes popIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* DECORATIONS — ALWAYS BEHIND THE GLASS CARD */
+    .heart, .sparkle, .butterfly, .float-word {
+      position: fixed;
+      z-index: 10 !important;   /* BELOW container */
+      pointer-events: none;
+    }
+
+    .heart {
+      font-size: 22px;
+      animation: floatUp 6s linear forwards;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      15% { opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    .sparkle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle,#fff,#ffdede00);
+      animation: sparkleFloat 3s linear forwards;
+    }
+
+    @keyframes sparkleFloat {
+      0% { transform: translateY(0) scale(.5); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.3); opacity: 0; }
+    }
+
+    .butterfly {
+      font-size: 30px;
+      animation: fly 7s linear forwards;
+    }
+
+    @keyframes fly {
+      0% { transform: translateX(-15vw) translateY(110vh); }
+      50% { transform: translateX(50vw) translateY(25vh); }
+      100% { transform: translateX(120vw) translateY(-15vh); }
+    }
+
+    .float-word {
+      font-size: 26px;
+      font-weight: 700;
+      color: rgba(255,99,71,0.9);
+      animation: wordFloat 6s linear forwards;
+    }
+
+    @keyframes wordFloat {
+      0% { transform: translateY(0) scale(.8); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.3); opacity: 0; }
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      .list-item {
+        font-size: 0.9rem;
+        padding: 14px;
+      }
+
+      .float-word {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>20 Reasons why You Might Forgive Me ❤
+        Sorry My Queen
+    </h1>
+    <div id="list-container"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById("list-container");
+
+    const reasons = [
+      "Because I never meant to hurt you, and the last thing I want is to see you upset.",
+      "Because my heart has always been honest with you.",
+      "Because I learn from my mistakes and want to grow for you.",
+      "Because you mean more to me than anything.",
+      "Because I want to be better for you every day.",
+      "Because our memories deserve more than a mistake.",
+      "Because I genuinely care about your feelings.",
+      "Because even when I mess up, you're always in my thoughts.",
+      "Because my intentions are pure, even when my actions slip.",
+      "Because your smile means everything to me.",
+      "Because I'm willing to admit when I'm wrong.",
+      "Because forgiveness reflects your kindness and strength.",
+      "Because I want to make it up to you however long it takes.",
+      "Because you mean more than my ego ever could.",
+      "Because I hate distance between us.",
+      "Because what we share is rare and valuable.",
+      "Because I will be more thoughtful from now on.",
+      "Because I will never take you for granted.",
+      "Because my apology comes from my heart.",
+      "Because I truly can't imagine life without you."
+    ];
+
+    reasons.forEach((text, i) => {
+      let item = document.createElement("div");
+      item.className = "list-item";
+      item.innerHTML = `<strong style="color:var(--accent)">${i+1}.</strong> ${text}`;
+      item.style.animationDelay = (0.4 + i * 0.12) + "s";
+      container.appendChild(item);
+    });
+
+    /* DECORATIONS */
+    function spawnHeart(){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.innerText = "❤";
+      h.style.left = (10 + Math.random()*80) + "vw";
+      h.style.bottom = "-5vh";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    }
+
+    function spawnSparkle(){
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.style.left = (5 + Math.random()*90)+"vw";
+      s.style.top = (20 + Math.random()*70)+"vh";
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(),3500);
+    }
+
+    function spawnButterfly(){
+      const b = document.createElement("div");
+      b.className = "butterfly";
+      b.innerText = "🦋";
+      b.style.left = "-10vw";
+      b.style.top = (30 + Math.random()*50) + "vh";
+      b.style.animationDuration = (6 + Math.random()*4) + "s";
+      document.body.appendChild(b);
+      setTimeout(()=>b.remove(),9000);
+    }
+
+    function spawnWord(){
+      const words = ["I AM SORRY","PLEASE FORGIVE ME","I MISS YOU","I MEAN IT"];
+      const w = document.createElement("div");
+      w.className = "float-word";
+      w.innerText = words[Math.floor(Math.random()*words.length)];
+      w.style.left = (10 + Math.random()*80) + "vw";
+      w.style.bottom = "-5vh";
+      w.style.animationDuration = (6 + Math.random()*5) + "s";
+      document.body.appendChild(w);
+      setTimeout(()=>w.remove(),9000);
+    }
+
+    setInterval(spawnHeart, 600);
+    setInterval(spawnSparkle, 260);
+    setInterval(spawnButterfly, 3800);
+    setInterval(spawnWord, 1800);
+  </script>
+</body>
+</html>
